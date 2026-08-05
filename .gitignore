@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Secrets — never commit these
+.env
+*.key
+
+# Data — synthetic only, never real learner data
+data/*.csv
