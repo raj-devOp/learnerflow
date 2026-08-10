@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: learnerflow
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: learnerflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://learnerflow:devpassword@db:5432/learnerflow
+
+volumes:
+  pgdata:
