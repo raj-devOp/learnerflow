@@ -72,11 +72,11 @@ def validate_file(filename):
             for err in errors:
                 print(f"  {learner_id}: {err}")
 
-    if __name__ == "__main__":
-        import argparse
+if __name__ == "__main__":
+    import argparse
 
-        parser = argparse.ArgumentParser(description="Validate learner records in a CSV file.")
-        parser.add_argument("file", help="Path to the CSV file to validate")
-        args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="Validate learner records in a CSV file.")
+    parser.add_argument("file", help="Path to the CSV file to validate")
+    args = parser.parse_args()
 
-        validate_file(args.file)
+    validate_file(args.file)
