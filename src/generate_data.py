@@ -5,6 +5,7 @@ data is ever used — this mirrors GDPR-safe practice.
 """
 import csv
 import random
+
 from faker import Faker
 
 fake = Faker("en_GB")   # UK-style names, addresses, etc.
