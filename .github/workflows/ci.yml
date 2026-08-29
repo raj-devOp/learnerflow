@@ -62,7 +62,8 @@ jobs:
       - name: Tag and push image
         if: github.event_name == 'push'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/learnerflow
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE=ghcr.io/$OWNER/learnerflow
           docker tag learnerflow:ci $IMAGE:latest
           docker tag learnerflow:ci $IMAGE:${{ github.sha }}
           docker push $IMAGE:latest
