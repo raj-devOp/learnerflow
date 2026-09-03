@@ -32,6 +32,12 @@ PAGE = """
 """
 
 def run_validation():
+    # Generate synthetic data on first run if it doesn't exist
+    if not os.path.exists(DATA_FILE):
+        from generate_data import generate_learners, save_to_csv
+        os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
+        save_to_csv(generate_learners(50), DATA_FILE)
+
     total = passed = 0
     failures = []
     with open(DATA_FILE, newline="") as fh:
