@@ -11,4 +11,4 @@ COPY --from=builder /install /usr/local
 COPY . .
 RUN useradd --create-home appuser
 USER appuser
-CMD ["python", "src/validate.py", "data/learners.csv"]
+CMD ["gunicorn", "--chdir", "src", "--bind", "0.0.0.0:8000", "app:app"]
