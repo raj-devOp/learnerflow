@@ -4,12 +4,15 @@ Serves the data-quality report over HTTP by reusing the existing
 validation engine. No validation logic is duplicated here.
 """
 import csv
+
 from flask import Flask, jsonify, render_template_string
+
 from validate import validate_learner
 
 app = Flask(__name__)
 
 import os
+
 DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "learners.csv")
 
 PAGE = """
